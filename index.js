@@ -32,8 +32,6 @@ const updateRedis = () => {
   });
 };
 
-updateRedis();
-
 cron.schedule(
   "0 0 */12 * * *",
   async () => {
