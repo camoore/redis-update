@@ -7,7 +7,7 @@ const cors = require("cors"),
   cron = require("node-cron"),
   PORT = process.env.PORT,
   apiKey = process.env.API_KEY,
-  { getOdds, getSports } = require("./api.js");
+  { getOdds } = require("./api.js");
 
 client = redis.createClient(process.env.REDIS_URL);
 app = express();
