@@ -6,7 +6,7 @@ const cors = require("cors"),
   redis = require("redis"),
   cron = require("node-cron"),
   PORT = process.env.PORT,
-  apiKey = process.env.API_KEY,
+  API_KEY = process.env.API_KEY,
   { getOdds } = require("./api.js");
 
 client = redis.createClient(process.env.REDIS_URL);
@@ -21,7 +21,7 @@ const updateRedis = () => {
   SPORT_KEYS.forEach(sport => {
     MKTS.forEach(async mkt => {
       try {
-        let odds = await getOdds(apiKey, sport, mkt);
+        let odds = await getOdds(API_KEY, sport, mkt);
         if (odds) {
           client.set(`${sport}_${mkt}`, odds);
         }
