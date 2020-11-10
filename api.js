@@ -8,13 +8,12 @@ const getOdds = async (
   mkt,
   region = "us",
   dateFormat = "unix",
-  oddsFormat = "american",
-  endPoint = "odds"
+  oddsFormat = "american"
 ) => {
   try {
     const { data } = await Axios({
       method: "GET",
-      url: `https://api.the-odds-api.com/v3/${endPoint}`,
+      url: `https://api.the-odds-api.com/v3/odds`,
       params: {
         apiKey,
         sport,
