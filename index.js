@@ -33,7 +33,7 @@ const updateRedis = () => {
 };
 
 cron.schedule(
-  "0 0 */12 * * *",
+  "0 0 0,17 * * *",
   async () => {
     await updateRedis();
     console.log(`${new Date()} - Redis API updated`);
