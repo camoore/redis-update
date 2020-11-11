@@ -30,6 +30,8 @@ const updateRedis = () => {
       }
     });
   });
+
+  client.set("last_updated", new Date());
 };
 
 cron.schedule(
