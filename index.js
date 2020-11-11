@@ -36,7 +36,7 @@ cron.schedule(
   "0 0 0,17 * * *",
   async () => {
     await updateRedis();
-    console.log(`${new Date()} - Redis API updated`);
+    console.log("\x1b[35m", `${new Date()} - Redis API updated`);
   },
   {
     scheduled: true,
@@ -49,5 +49,5 @@ app.get("/", async (req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`\n${new Date()} - App Started on Port: ${PORT}`);
+  console.log("\x1b[35m", `\n${new Date()} - App Started on Port: ${PORT}`);
 });
