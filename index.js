@@ -44,6 +44,10 @@ cron.schedule(
   }
 );
 
+app.get("/", async (req, res, next) => {
+  return res.status(200).json({ success: true });
+});
+
 app.listen(PORT, () => {
   console.log(`\n${new Date()} - App Started on Port: ${PORT}`);
 });
