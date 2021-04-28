@@ -34,6 +34,21 @@ const updateRedis = () => {
   client.set("last_updated", new Date());
 };
 
+app.get("/:key", (req, res, next) => {
+  
+  client.get(req.params.key, async (err, redisData) => {
+    if (err) return next(err);
+    try {
+      const { data = 'empty' } = await JSON.parse(redisData) 
+      client.quit()
+    return res.status(200).json({ data: redisData }); 
+    } catch (error) {
+      console.error(error)
+    }
+ 
+  });
+});
+
 cron.schedule(
   "0 0 0,17 * * *",
   async () => {
